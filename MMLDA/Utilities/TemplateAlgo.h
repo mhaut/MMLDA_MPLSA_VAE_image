@@ -46,7 +46,7 @@ public:
 		// make an initial heap out of the first num_data_to_print elements
 		for ( size_t j = 0 ; j < num_datum_to_expand; ++j ) {
 			param_value = row_vec.at(j);
-			heap_vec.push_back( make_pair(param_value, j) );
+			heap_vec.push_back( std::make_pair(param_value, j) );
 		}
 
 		// modify the top-num_data_to_print heap
@@ -60,7 +60,7 @@ public:
 				pop_heap(heap_vec.begin(), heap_vec.end(), compare_pair_T_size_t_descending<T>() );
 				heap_vec.pop_back();
 
-				heap_vec.push_back( make_pair(param_value, j) );
+				heap_vec.push_back( std::make_pair(param_value, j) );
 				push_heap(heap_vec.begin(), heap_vec.end(), compare_pair_T_size_t_descending<T>() );
 			}
 		}

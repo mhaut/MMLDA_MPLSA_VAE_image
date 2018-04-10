@@ -81,7 +81,7 @@ public:
 		// make an initial heap out of the first num_data_to_print elements
 		for ( size_t j = 0 ; j < num_datum_to_print; ++j ) {
 			param_value = row_vec.at(j);
-			pq_queue.push( make_pair(param_value, j) );
+			pq_queue.push( std::make_pair(param_value, j) );
 		}
 		// modify the top-k heap
 		std::pair<T, size_t> a_pair;
@@ -90,7 +90,7 @@ public:
 			a_pair = pq_queue.top();
 			if ( a_pair.first < param_value ) {
 				pq_queue.pop();
-				pq_queue.push( make_pair(param_value, j) );
+				pq_queue.push( std::make_pair(param_value, j) );
 			}
 		}
 
@@ -146,7 +146,7 @@ public:
 				pop_heap(heap_vec.begin(), heap_vec.end(), compare_pair_T_size_t_descending<T>() );
 				heap_vec.pop_back();
 
-				heap_vec.push_back( make_pair(param_value, j) );
+				heap_vec.push_back( std::make_pair(param_value, j) );
 				push_heap(heap_vec.begin(), heap_vec.end(), compare_pair_T_size_t_descending<T>() );
 			}
 		}
